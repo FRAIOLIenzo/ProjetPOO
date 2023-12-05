@@ -45,6 +45,7 @@ namespace WinProject {
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::Button^ btnOK;
 	private: System::Windows::Forms::Button^ btnClear;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 
 
@@ -71,7 +72,9 @@ namespace WinProject {
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->btnOK = (gcnew System::Windows::Forms::Button());
 			this->btnClear = (gcnew System::Windows::Forms::Button());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->tableLayoutPanel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// label1
@@ -93,7 +96,7 @@ namespace WinProject {
 				static_cast<System::Byte>(0)));
 			this->tbFirstName->Location = System::Drawing::Point(18, 47);
 			this->tbFirstName->Name = L"tbFirstName";
-			this->tbFirstName->Size = System::Drawing::Size(375, 43);
+			this->tbFirstName->Size = System::Drawing::Size(441, 43);
 			this->tbFirstName->TabIndex = 1;
 			// 
 			// label2
@@ -115,7 +118,7 @@ namespace WinProject {
 				static_cast<System::Byte>(0)));
 			this->tbLastName->Location = System::Drawing::Point(18, 167);
 			this->tbLastName->Name = L"tbLastName";
-			this->tbLastName->Size = System::Drawing::Size(375, 43);
+			this->tbLastName->Size = System::Drawing::Size(441, 43);
 			this->tbLastName->TabIndex = 3;
 			// 
 			// lbWelcome
@@ -140,11 +143,11 @@ namespace WinProject {
 				50)));
 			this->tableLayoutPanel1->Controls->Add(this->btnOK, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->btnClear, 1, 0);
-			this->tableLayoutPanel1->Location = System::Drawing::Point(27, 389);
+			this->tableLayoutPanel1->Location = System::Drawing::Point(27, 426);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 1;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(366, 53);
+			this->tableLayoutPanel1->Size = System::Drawing::Size(432, 53);
 			this->tableLayoutPanel1->TabIndex = 5;
 			// 
 			// btnOK
@@ -155,7 +158,7 @@ namespace WinProject {
 				static_cast<System::Byte>(0)));
 			this->btnOK->Location = System::Drawing::Point(3, 3);
 			this->btnOK->Name = L"btnOK";
-			this->btnOK->Size = System::Drawing::Size(177, 45);
+			this->btnOK->Size = System::Drawing::Size(210, 45);
 			this->btnOK->TabIndex = 0;
 			this->btnOK->Text = L"OK";
 			this->btnOK->UseVisualStyleBackColor = true;
@@ -167,13 +170,24 @@ namespace WinProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->btnClear->Font = (gcnew System::Drawing::Font(L"Segoe Print", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnClear->Location = System::Drawing::Point(186, 3);
+			this->btnClear->Location = System::Drawing::Point(219, 3);
 			this->btnClear->Name = L"btnClear";
-			this->btnClear->Size = System::Drawing::Size(177, 45);
+			this->btnClear->Size = System::Drawing::Size(210, 45);
 			this->btnClear->TabIndex = 1;
 			this->btnClear->Text = L"Clear";
 			this->btnClear->UseVisualStyleBackColor = true;
 			this->btnClear->Click += gcnew System::EventHandler(this, &MainForm::btnClear_Click);
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->pictureBox1->Location = System::Drawing::Point(-2, 0);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(474, 510);
+			this->pictureBox1->TabIndex = 6;
+			this->pictureBox1->TabStop = false;
 			// 
 			// MainForm
 			// 
@@ -181,18 +195,20 @@ namespace WinProject {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
-			this->ClientSize = System::Drawing::Size(405, 470);
+			this->ClientSize = System::Drawing::Size(471, 507);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->Controls->Add(this->lbWelcome);
 			this->Controls->Add(this->tbLastName);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->tbFirstName);
 			this->Controls->Add(this->label1);
+			this->Controls->Add(this->pictureBox1);
 			this->MinimumSize = System::Drawing::Size(423, 517);
 			this->Name = L"MainForm";
 			this->Text = L"Welcome";
 			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
 			this->tableLayoutPanel1->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -210,6 +226,13 @@ namespace WinProject {
 	}
 	private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		this->lbWelcome->Text = "";
+
+		String^ imagePath = "C:\\Users\\elraz\\OneDrive - Association Cesi Viacesi mail\\CESI - A2\\Blocs\\2 - Conception et programmation objet\\Projet fil rouge\\Interface1\\genjibackground.png";
+		
+		Bitmap^ image = gcnew Bitmap(imagePath);
+		this->pictureBox1->Image = image;
+
+		this->pictureBox1->SizeMode = PictureBoxSizeMode::StretchImage;
 	}
 	};
 }
