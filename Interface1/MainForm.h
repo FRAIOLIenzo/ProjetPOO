@@ -81,9 +81,9 @@ namespace WinProject {
 				static_cast<System::Byte>(0)));
 			this->label1->Location = System::Drawing::Point(12, 9);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(119, 35);
+			this->label1->Size = System::Drawing::Size(62, 35);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Identifiant";
+			this->label1->Text = L"Nom";
 			// 
 			// tbFirstName
 			// 
@@ -103,9 +103,9 @@ namespace WinProject {
 				static_cast<System::Byte>(0)));
 			this->label2->Location = System::Drawing::Point(15, 117);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(144, 35);
+			this->label2->Size = System::Drawing::Size(93, 35);
 			this->label2->TabIndex = 2;
-			this->label2->Text = L"Mot de passe";
+			this->label2->Text = L"Prénom";
 			// 
 			// tbLastName
 			// 
